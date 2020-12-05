@@ -20,16 +20,22 @@ def filter_number_list(the_number_list, criteria_def):
         first_number = the_number_list[first_pos]
         second_number = the_number_list[second_pos]
         
-        print(first_pos, second_pos)
+        is_true = criteria_def(first_number, second_number)
+
+        print(first_pos, second_pos, is_true)
         pass
-  # add numbers stored in first and second variable
+  
   # if a pair equals 2020 then keep them
   # if a pair doesn't equal 2020 continue 
   pass
 # end of filter_number_list
 
 def is_sum_2020(the_first_number, the_second_number):
-  pass
+  # add numbers stored in first and second variable
+  the_sum = the_first_number + the_second_number
+  if the_sum == 2020:
+    return True
+  return False
 # end of is_sum_2020
 
 # main
