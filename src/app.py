@@ -10,6 +10,7 @@ def get_number_list():
 # end of get_number_list
 
 def filter_number_list(the_number_list, criteria_def):
+  filtered_number_list = []
   # go through all numbers, store in first variable
   for first_pos in range(0, len(the_number_list)):
     # go through all numbers, store in second variable
@@ -22,12 +23,15 @@ def filter_number_list(the_number_list, criteria_def):
         
         is_true = criteria_def(first_number, second_number)
 
-        print(first_pos, second_pos, is_true)
-        pass
-  
-  # if a pair equals 2020 then keep them
-  # if a pair doesn't equal 2020 continue 
-  pass
+        if is_true:
+          filtered_number_list.append(first_number)
+          filtered_number_list.append(second_number)
+          break
+    
+    if len(filtered_number_list) > 0:
+      break
+
+  return filtered_number_list
 # end of filter_number_list
 
 def is_sum_2020(the_first_number, the_second_number):
@@ -43,4 +47,8 @@ def is_sum_2020(the_first_number, the_second_number):
 number_list = get_number_list()
 print(number_list)
 
-filter_number_list(number_list, is_sum_2020)
+results = filter_number_list(number_list, is_sum_2020)
+print(results)
+
+answer = results[0] * results[1]
+print(answer)
